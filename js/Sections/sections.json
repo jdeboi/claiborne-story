@@ -1,0 +1,100 @@
+[
+    {
+        "id": 0,
+        "title": "the beginning",
+        "description": "a bustling corridor for Black-owned entrepreneurs. 200 Live oaks, longest in the country.",
+        "startYear": 1940,
+        "endYear": 1968
+    },
+    {
+        "id": 1,
+        "title": "the overpass",
+        "description": "construction of the overpass began in 1968.",
+        "startYear": 1968,
+        "endYear": 1968
+    },
+    {
+        "id": 2,
+        "title": "business decline",
+        "description": "109 businesses in 1949 in claiborne corridor. 35 by 2020.",
+        "startYear": 1968,
+        "endYear": 2020
+    },
+    {
+        "id": 3,
+        "title": "traffic flow",
+        "description": "1000 cars per hour in the corridor.",
+        "startYear": 2020,
+        "endYear": 2021
+    },
+    {
+        "id": 4,
+        "title": "pollution",
+        "description": "90-95th percentile for NATA Diesel PM.",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 5,
+        "title": "aging infrastructure",
+        "description": "the claiborne overpass needs to come down. now is the opportunity to do it. reparations.",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 6,
+        "title": "preserving culture",
+        "description": "critical neighborhood for culture bearers.",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 7,
+        "title": "preserving culture",
+        "description": "critical neighborhood for culture bearers.",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 8,
+        "title": "gentrification",
+        "description": "but just, equitable solutions are not as simple as removing the overpass. Over the past 15 years, serious gentrification also displaces Black households",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 9,
+        "title": "A just future",
+        "description": "reparations",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 10,
+        "title": "affordable housing",
+        "description": "some info here",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 11,
+        "title": "public transportation",
+        "description": "some info here",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 12,
+        "title": "green infrastructure",
+        "description": "some info here",
+        "startYear": 2021,
+        "endYear": 2021
+    },
+    {
+        "id": 13,
+        "title": "community-driven solutions",
+        "description": "some info here",
+        "startYear": 2021,
+        "endYear": 2021
+    }
+]
