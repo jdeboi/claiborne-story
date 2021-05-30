@@ -61,7 +61,7 @@ function preload() {
     // soundFormats('mp3');
     // highwaySound = loadSound('assets/sounds/highway');
 
-    loadJSON("/assets/past/images.json", loadDestinations);
+    loadJSON("assets/past/images.json", loadDestinations);
 
 }
 
@@ -140,7 +140,7 @@ function loadDestinations(images) {
 
     for (let i = 0; i < images.length; i++) {
         const { x, y, path } = images[i];
-        const url = '/assets/past/destinations/' + path;
+        const url = 'assets/past/destinations/' + path;
         destinations[i] = new Destination(x, y, url);
     }
 }
@@ -219,9 +219,12 @@ function mousePressed() {
 }
 
 function startNewSmallCar() {
-    smallCars[smallCarIndex].started = true;
-    smallCarIndex++;
-    smallCarIndex %= smallCars.length;
+    if (smallCars[smallCarIndex]) {
+        smallCars[smallCarIndex].started = true;
+        smallCarIndex++;
+        smallCarIndex %= smallCars.length;
+    }
+ 
 }
 
 function drawBK() {

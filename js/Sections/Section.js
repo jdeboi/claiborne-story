@@ -21,8 +21,8 @@ class Section {
         this.per = 0;
         this.h = 250;
         this.y = height + this.h + 10;
-        this.w = width - 200;
-
+        this.w = min(width - 200, 900);
+       
 
         this.dots = [];
         for (let i = 0; i < 150; i++) {
@@ -59,7 +59,8 @@ class Section {
 
     displayText() {
         push();
-        translate(50, this.y);
+        const x = (width - 100 - this.w)/2;
+        translate(x, this.y);
         // fill(0);
         // stroke(255);
         // rect(0, 0, 400, 100, 10);
@@ -91,9 +92,15 @@ class Section {
 
 
         textFont(font);
+
+        this.displayTextImage();
         pop();
     }
 
+    displayTextImage() {
+
+    }
+    
     displayDate() {
         fill(255);
         stroke(255);
