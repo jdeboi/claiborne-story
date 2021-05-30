@@ -19,16 +19,27 @@ class House {
         }
     }
 
-    displayColor(col) {
+    displayBlack(isBlackOwned) {
         this.display();
         // noFill();
         // stroke(col);
-        noStroke();
-        let c = color(red(col), blue(col), green(col), 50);
-        fill(c);
-        const w = this.factor  * this.img.width;
-        const h = this.factor * this.img.height;
-        rect(this.x, this.y, w, h);
+
+        if (!isBlackOwned) {
+            stroke(0);
+            strokeWeight(3);
+            // let c = color(red(col), blue(col), green(col), 50);
+            fill(255);
+            const w = this.factor  * this.img.width;
+            // const h = this.factor * this.img.height;
+            rect(this.x+w*.1, this.y, w*.8, 50);
+    
+            noStroke();
+            fill(0);
+            textSize(18);
+            const x = this.x + w/2 - textWidth("white owned")/2 ;
+            text("white owned", x, this.y+30);
+        }
+       
     }
 
     mouseOver() {

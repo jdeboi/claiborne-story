@@ -19,7 +19,7 @@ class Section {
         this.isVisible = false;
 
         this.per = 0;
-        this.h = 250;
+        this.h = 280;
         this.y = height + this.h + 10;
         this.w = min(width - 200, 900);
        
@@ -41,7 +41,9 @@ class Section {
         // }  
     }
 
-    checkClick() { }
+    checkClick() { 
+        console.log("clicked")
+    }
 
 
     checkDrag() {
@@ -88,7 +90,7 @@ class Section {
         fill(235);
         noStroke();
         textSize(24);
-        text(this.txt, 0, 60, this.w - 2*buffer, this.h - 2*buffer);
+        text(this.txt, 0, 60, this.w - buffer*2, this.h - 2*buffer);
 
 
         textFont(font);
@@ -100,7 +102,7 @@ class Section {
     displayTextImage() {
 
     }
-    
+
     displayDate() {
         fill(255);
         stroke(255);

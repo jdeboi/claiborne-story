@@ -11,11 +11,11 @@ class Arrow {
 
         if (this.isVertical) {
             this.w = h;
-            this.h = w -  3*this.tri;
+            this.h = w - 3 * this.tri;
         }
         else {
-            this.w = w -  3*this.tri;
-            this.h =h;
+            this.w = w - 3 * this.tri;
+            this.h = h;
         }
 
 
@@ -44,17 +44,23 @@ class Arrow {
         translate(this.x, this.y);
 
         noStroke();
-        // this.isOver(dx, dy) ? fill(50) : fill(255);
-        fill(255);
+        this.isOver(dx, dy) ? fill(150) : fill(255);
 
         rect(0, 0, this.w, this.h);
         this.displayLines();
+
+        noStroke();
+        textSize(20);
+        this.isOver(dx, dy) ? fill(150) : fill(200);
+        text("start", this.w + 50, 20);
+
         pop();
 
         const { x1, x2, x3, y1, y2, y3 } = this.getTriangle(0, 0);
-        // this.isOver(dx, dy) ? fill(50) : fill(255);
-        fill(255);
+        this.isOver(dx, dy) ? fill(150) : fill(255);
         triangle(x1, y1, x2, y2, x3, y3);
+
+
 
         // if (this.isOver(dx, dy))
         //     image(this.tractor2, this.tractorX, this.tractorY, this.tractor.width * .3, this.tractor.height * .3);
@@ -89,9 +95,10 @@ class Arrow {
 
 
     isOver(dx, dy) {
-        if (overRect(this.x + dx, this.y + dy, this.w, this.h))
+        if (overRect(this.x + dx, this.y + dy, this.w + 3 * this.tri, this.h))
             return true;
-        return this.overTri(dx, dy);
+        return false;
+        // return this.overTri(dx, dy);
     }
 
     getTriangle(dx, dy) {

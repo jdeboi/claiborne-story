@@ -11,10 +11,7 @@ canvas {
 }
 
 #togglePast {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
-    z-index: 20;
+
 }
 
 #startButton {
@@ -34,5 +31,13 @@ canvas {
 }
 
 .hidden {
+    display: none;
+}
+
+#pastButton {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    z-index: 20;
     display: none;
 }

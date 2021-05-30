@@ -4,7 +4,7 @@ class Car {
         if (goesRight)
             this.x = -340;
         else
-            this.x = width;
+            this.x = width + 300;
         this.y = y;
         this.img = car;
         this.speed = random(2, 5);
@@ -63,7 +63,7 @@ class Car {
     }
 
     display() {
-        if (this.img) {
+        if (this.started && this.img) {
             if (this.goesRight) {
                 image(this.img, this.x, 120- this.getH(), this.getW(), this.getH());
             }

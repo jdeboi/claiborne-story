@@ -4,90 +4,90 @@
         "title": "Smoky's Mountain Barbeque",
         "year": 1953,
         "path": "701_S_Claiborne_1953.jpg",
-        "description": "701 S Claiborne",
+        "description": "Smoky's Mountain Barbeque, 701 S Claiborne",
         "coord": {
             "lat": 29.952590008887498,
             "lng": -90.08390496092437
         },
-        "x": 50,
-        "y": 50
+        "x": 500,
+        "y": 150
     },
     {
         "id": 1,
         "title": "1408 N Claiborne",
         "year": 1953,
         "path": "1408 N.Claiborne_1953_inside.png",
-        "description": "some details about this spot",
+        "description": "1408 N.Claiborne",
         "coord": { 
             "lat": 29.969489401157603,
             "lng": -90.06806926899316
         },
-        "x": -100,
-        "y": 200
+        "x": 500,
+        "y": 400
     },
     {
         "id": 2,
         "title": "1480 N Claiborne",
         "year": 1953,
         "path": "1480 N.Claiborne_1953_inside.png",
-        "description": "some details about this spot",
+        "description": "1480 N Claiborne",
         "coord": {  
             "lat": 29.970718258008283,
             "lng": -90.06682899992836
         },
-        "x": 200,
-        "y": 400
+        "x": 1130,
+        "y": 900
     },
     {
         "id": 3,
         "title": "1408 N Claiborne",
         "year": 1967,
         "path": "1408 N.Claiborne_1967.png",
-        "description": "some details about this spot",
+        "description": "1408 N Claiborne",
         "coord": { 
             "lat": 29.969489401157603,
             "lng": -90.06806926899316
         },
-        "x": 100,
-        "y": 600
+        "x": 1080,
+        "y": 980
     },
     {
         "id": 4,
         "title": "Dumaine at Claiborne",
         "year": 1952,
         "path": "Dumaine at Claiborne_1952.png",
-        "description": "some details about this spot",
+        "description": "Dumaine at Claiborne",
         "coord": { 
             "lat":  29.96566211082031,
             "lng": -90.07208613153614
         },
-        "x": 200,
-        "y": 800
+        "x": 850,
+        "y": 1180
     },
     {
         "id": 4,
         "title": "Orleans at Claiborne",
         "year": 1947,
         "path": "Orleans at Claiborne_1947.jpeg",
-        "description": "some details about this spot",
+        "description": "Orleans at Claiborne",
         "coord": {  
             "lat":  29.964360845894124,
             "lng": -90.07314829491824
         },
-        "x": 0,
-        "y": 1000
+        "x": 800,
+        "y": 1250
     },
     {
         "id": 5,
         "title": "Ursulines at Claiborne",
         "year": 1947,
         "path": "Ursulines at N.Claiborne_1947_3.jpg",
-        "description": "some details about this spot",
+        "description": "Ursulines at Claiborne",
         "coord": { 
             "lat":  29.967533434976545,
             "lng": -90.07058177607975
         },
-        "x": 100,
-        "y": 1400
+        "x": 950,
+        "y": 1050
     }
 ]

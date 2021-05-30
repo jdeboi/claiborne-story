@@ -21,9 +21,9 @@ class Title extends Section {
 
         this.monsterImages = new Frame(this.x, this.y, this.w / 2, this.w / 2);
 
-        this.startButton = createButton('start');
-        this.startButton.position(this.arrowX, 500);
-        this.startButton.mousePressed(() => startAnimation());
+        // this.startButton = createButton('start');
+        // this.startButton.position(this.arrowX, 500);
+        // this.startButton.mousePressed(() => startAnimation());
 
         this.fadeStarted = false;
         this.fadeDirection = 1;
@@ -45,6 +45,8 @@ class Title extends Section {
     }
 
     displayScene() {
+        this.x = (width - this.w) / 2;
+        
         if (this.isFading()) {
             this.fade();
         }
@@ -104,7 +106,7 @@ class Title extends Section {
         this.displayMonsterText();
         this.arrow.display(0, this.getOscillation());
 
-        this.startButton.position(this.arrowX, 500 + this.getOscillation() + dy);
+        // this.startButton.position(this.arrowX, 500 + this.getOscillation() + dy);
         pop();
     }
 
@@ -126,7 +128,7 @@ class Title extends Section {
         this.arrow.display(0, this.getOscillation());
 
         pop();
-        this.startButton.position(this.arrowX, 500 + this.getOscillation());
+        // this.startButton.position(this.arrowX, 500 + this.getOscillation());
     }
 
     getOscillation() {
@@ -135,7 +137,8 @@ class Title extends Section {
 
     checkClick() {
         if (this.arrow.isOver(0, this.getOscillation())) {
-            document.getElementById("highwaySound").play();
+            // document.getElementById("highwaySound").play();
+            startAnimation();
         }
     }
 

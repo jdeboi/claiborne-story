@@ -69,13 +69,13 @@ class Houses {
 
     displayGentrification(per) {
         const len = this.housesBelow.length;
-        let numHouses = floor(map(per, 0, 1, len*.85, len*.3));
+        let numHouses = floor(map(per, 0, 1, len*.9, len*.15));
        
         for (let i = 0; i < numHouses; i++) {
-            this.housesBelow[this.indices[i]].displayColor(color(255, 0, 255));
+            this.housesBelow[this.indices[i]].displayBlack(true);
         }
         for  (let i = numHouses; i < this.housesBelow.length; i++) {
-            this.housesBelow[this.indices[i]].displayColor(color(0, 255, 0));
+            this.housesBelow[this.indices[i]].displayBlack(false);
         }
         // translate(0, 100);
         // this.housesBelow

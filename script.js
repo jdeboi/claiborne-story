@@ -44,7 +44,7 @@ let font, fontText;
 function preload() {
 
     font = loadFont("assets/fonts/BaksoSapi.otf"); //simplicity.ttf");
-    fontText = loadFont("assets/fonts/simplicity.ttf"); 
+    fontText = loadFont("assets/fonts/simplicity.ttf");
 
     bkImg = loadImage("assets/overview/background.png");
     bkBig = loadImage("assets/overview/background2.png");
@@ -82,28 +82,28 @@ function setup() {
     }
 
     let sectionID = 0;
-    let spacing = 1 / 16;
+    let spacing = 1 / 10;
 
     // sections[++sectionID] = new Map("map", "txt", 1940, 1940, sectionID, spacing, canvas);
     // sections[sectionID] = new Title("title", "txt", 1940, 1940, sectionID, spacing);
 
     titleSection = new Title("title", "txt", 1940, 1940, sectionID, spacing);
-    sections[sectionID] = new Overview0("map0", "txt", 1940, 1940, sectionID, spacing);
+    sections[sectionID] = new Overview0("The Monster", "Once a bustling, tree-lined corridor of Black-owned businesses and ", 1940, 1940, sectionID, spacing);
     sections[++sectionID] = new Overview1("map0", "txt", 1940, 1940, sectionID, spacing);
 
-    sections[++sectionID] = new Beginning("the beginning", "a bustling corridor for Black-owned entrepreneurs. 200 Live oaks, longest in the country.", 1940, 1968, sectionID, spacing);
-    sections[++sectionID] = new Overpass("construction of the overpass", "began in 1968", 1968, 1968, sectionID, spacing);
-    sections[++sectionID] = new Business("business decline", "109 businesses in 1949 in claiborne corridor. 35 by 2020.", 1968, 2020, sectionID, spacing);
-    sections[++sectionID] = new Traffic("traffic flow", "this much traff", 2020, 2021, sectionID, spacing);
-    sections[++sectionID] = new Pollution("pollution", "90-95th percentile for Diesel PM", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("aging infrastructure", "needs to come down", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("site of preserving culture bearers", "an opportunity to elevate and preserve culture  bearers", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Gentrification("gentrification", "but equitable solutions aren't as easy as removing the overpass", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("solutions?", "guided by community leaders, groups, and residents", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("affordable housing", "critical to prevent the displacement of Black households", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("public transportation", "replace the overpass", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("green infrastructure", "concrete = flooding", 2021, 2021, sectionID, spacing);
-    sections[++sectionID] = new Section("the end", "reach out to ___ to get involved", 2021, 2021, sectionID, spacing);
+    sections[++sectionID] = new Beginning("1940s: What came before", "A gathering space, lined with 200 live oak trees, all nearly 100 years old. Homes, restaurants, bars, a pharmacy, funeral homes, insurance company offices, an ice cream shop, Louis Armstrong’s favorite spot to eat red beans. A corridor that supported the culture and life of the historic Black neighborhood that surrounds it. The parade grounds for Black Mardi Gras during the segregation era.", 1940, 1968, sectionID, spacing);
+    sections[++sectionID] = new Overpass("1966, Ash Wednesday", "Backhoes arrive to take down the live oak trees, clearing the longest strand of oak trees in the country for construction of the overpass.", 1968, 1968, sectionID, spacing);
+    sections[++sectionID] = new Business("1960-2000: Declining Business", "In 1960 there were 132 businesses registered on Claiborne Avenue according to Polk’s New Orleans City Directories. By 2000, after decades of steady decline, there were only 35.", 1968, 2020, sectionID, spacing);
+    // sections[++sectionID] = new Traffic("Traffic Flow", "Residents within the Claiborne Corridor are in the top 95th to 100th percentiles in the state terms of traffic proximity.", 2020, 2021, sectionID, spacing);
+    sections[++sectionID] = new Pollution("Pollution", "According to the EPA's National Air Toxics Assessment (NATA), the Claiborne Corridor ranks in the 90-95th percentile for diesel particulate matter. This pollution has been linked to cardiovascular and respiratory diseases.", 2021, 2021, sectionID, spacing);
+    sections[++sectionID] = new Section("Removing the Overpass", "The Claiborne Expressway is reaching its age limit. The Claiborne Avenue Alliance is calling for the removal of the overpass. Restoring the beauty, paying reparations for economic and racial injustice, and protecting the cultural heritage of the Treme neighborhood should be the city (and nation's) top priority.", 2021, 2021, sectionID, spacing);
+    // sections[++sectionID] = new Section("site of preserving culture bearers", "an opportunity to elevate and preserve culture  bearers", 2021, 2021, sectionID, spacing);
+    sections[++sectionID] = new Gentrification("Equitable Futures", "Equitable solutions, however, aren't as easy as removing the overpass. The Treme neighborhood has already been subjected to significant gentrification as increased rent has forced Black households to move.", 2021, 2021, sectionID, spacing);
+    // sections[++sectionID] = new Section("solutions?", "guided by community leaders, groups, and residents", 2021, 2021, sectionID, spacing);
+    // sections[++sectionID] = new Section("affordable housing", "critical to prevent the displacement of Black households", 2021, 2021, sectionID, spacing);
+    // sections[++sectionID] = new Section("public transportation", "replace the overpass", 2021, 2021, sectionID, spacing);
+    // sections[++sectionID] = new Section("green infrastructure", "concrete = flooding", 2021, 2021, sectionID, spacing);
+    sections[++sectionID] = new Section("Get Involved", "Reach out to get involved.", 2021, 2021, sectionID, spacing);
 
     currentSection = sections[0];
 
@@ -139,16 +139,23 @@ function displaySmallCars(factor) {
 function loadDestinations(images) {
 
     for (let i = 0; i < images.length; i++) {
-        const { x, y, path } = images[i];
+        const { x, y, path, year, description } = images[i];
         const url = 'assets/past/destinations/' + path;
-        destinations[i] = new Destination(x, y, url);
+        destinations[i] = new Destination(x, y, year, description, url);
     }
 }
 
-function displayDestinations(factor) {
+function displayDestinations(dx, dy, factor) {
     for (const d of destinations) {
         // d.updateCoords(myMap);
-        d.display(factor);
+        d.display(dx, dy, factor);
+    }
+}
+
+function displayDestinationImage() {
+    for (const d of destinations) {
+        // d.updateCoords(myMap);
+        d.displayImage();
     }
 }
 
@@ -215,7 +222,10 @@ function mousePressed() {
     //     highwaySound.play();
     //     highwaySound.loop();
     // }
-    currentSection.checkClick();
+    if (!hasStarted)
+        titleSection.checkClick();
+    else
+        currentSection.checkClick();
 }
 
 function startNewSmallCar() {
@@ -224,7 +234,7 @@ function startNewSmallCar() {
         smallCarIndex++;
         smallCarIndex %= smallCars.length;
     }
- 
+
 }
 
 function drawBK() {
@@ -233,4 +243,10 @@ function drawBK() {
     // fill(255, 100);
     // rect(0, 0, width, height);
     background(backgroundCol);
+}
+
+let pastOn = true;
+function togglePast() {
+    pastOn = !pastOn;
+    document.getElementById("pastButton").innerHTML = (pastOn ? "past" : "present");
 }
