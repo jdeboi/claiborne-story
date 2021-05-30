@@ -5,8 +5,10 @@ class Gentrification extends Section {
     }
 
     displayScene() {
+        drawBK();
+        
         push();
-        translate(0, 100); 
+  
         
         let y  = constrain(map(this.per , 0, .3,  0, 800), 0, 500);
         if (this.per >  .8) {
@@ -14,18 +16,12 @@ class Gentrification extends Section {
         }
         translate(0, -y);
 
-      
-        houses.displayAbove();
-        
-        translate(0, 200);
-        highway.display();
-        highway.updateTraffic(3500);
+        displayTraffic(1, 3500);
 
-        translate(0, 200);
-        houses.displayBelow();
-
-        translate(0,  300);
-        let gent = constrain(map(this.per, .2, 1, 0, 1), 0, 1);
+        translate(0, 800);
+        let gent = constrain(map(this.per, .3, .6, 0, 1), 0, 1);
+        houses.displayGentrification(gent);
+        translate(0, 300);
         houses.displayGentrification(gent);
 
         pop();

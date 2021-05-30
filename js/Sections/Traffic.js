@@ -6,18 +6,28 @@ class Traffic extends Section {
 
   
     displayScene() {
-        push();
-        translate(0, 100);  
-        houses.displayAbove();
-       
-        translate(0, 200);
-        highway.display();
-        highway.updateTraffic(500);
-
-        translate(0, 200);
-        houses.displayBelow();
-        pop();
+        // background(backgroundCol);
+        drawBK();
+        
+        displayTraffic(1, 500);
     }
 
     
+}
+
+function displayTraffic(per, updateSpeed) {
+    push();
+    translate(0, 100);
+    houses.displayAbove();
+
+    translate(0, 150);
+    highway1.display(per);
+    highway1.updateTraffic(updateSpeed);
+    translate(0, 100);
+    highway2.display(per);
+    highway2.updateTraffic(updateSpeed);
+
+    translate(0, 250);
+    houses.displayBelow();
+    pop();
 }

@@ -5,26 +5,26 @@ class Overpass extends Section {
     }
 
     displayScene() {
-        push();
-        translate(0, 100);
-        houses.displayAbove();
+        // background(backgroundCol);
+        drawBK();
 
-        translate(0, 200);
-
+       
         if (this.per < .2) {
-            // let val = map(this.per, 0, .2, 255, 0);
-            // fill(backgroundCol, val);
-            // noStroke();
-            // rect(0, -100, width, 400);
-            highway.display(map(this.per, 0, .2, 0, 1));
+       
+
+            displayTraffic(map(this.per, 0, .2, 0, 1), 3500);
+
+            highway1.noCars();
+            highway2.noCars();
         }
         else {
-            highway.display(1);
+            displayTraffic(1, 3500);
+
+            highway1.goCars();
+            highway2.goCars();
         }
 
-        translate(0, 200);
-        houses.displayBelow();
-        pop();
+      
     }
 
     // update(scrollPer) {

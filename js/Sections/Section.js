@@ -1,62 +1,104 @@
 class Section {
+    static counter = 0;
+
+    static increaseId() {
+        this.counter += 1;
+    }
 
     constructor(title, txt, startYear, endYear, id, spacing) {
+
         this.title = title;
-        this.txt = txt;
         this.txt = txt;
         this.startYear = startYear;
         this.endYear = endYear;
         this.id = id;
 
         this.start = this.id * spacing;
-        this.end = (this.id+1) * spacing;
+        this.end = (this.id + 1) * spacing;
 
         this.isVisible = false;
 
         this.per = 0;
-        this.y = height + 100;
-        this.w = 400;
-        this.h = 100;
+        this.h = 250;
+        this.y = height + this.h + 10;
+        this.w = width - 200;
+
 
         this.dots = [];
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 150; i++) {
             this.dots[i] = { x: random(width), y: random(height), r: random(5, 20) };
         }
+
     }
+
+
 
     display() {
         // if (this.isVisible) {
-            this.displayScene();
-            this.displayText();
+        this.displayScene();
+        this.displayText();
+        // this.displayDate();
         // }  
     }
 
-    displayScene() {
-        push();
-        translate(0, 100);  
-        houses.displayAbove();
-       
-        translate(0, 200);
-        highway.display();
-        highway.updateTraffic(3500);
+    checkClick() { }
 
-        translate(0, 200);
-        houses.displayBelow();
-        pop();
+
+    checkDrag() {
+
+    }
+
+    displayScene() {
+        // background(backgroundCol);
+        drawBK();
+
+        displayTraffic(1, 3500);
+
+
     }
 
     displayText() {
         push();
-        translate(0, this.y);
-        fill(0);
+        translate(50, this.y);
+        // fill(0);
+        // stroke(255);
+        // rect(0, 0, 400, 100, 10);
+        // fill(255);
+        // textSize(20);
+        // text(this.title, 10, 10, this.w - 20, 20);
+        // textSize(14);
+        // text(this.txt, 10, 40, this.w - 20, this.h - 60);
+
+        // translate(50, height - 250);
         stroke(255);
-        rect(0, 0, 400, 100, 10);
+        strokeWeight(3);
+        fill(0, 210);
+        rect(0, 0, this.w, this.h, 30);
+
+        const buffer = 35;
+        translate(buffer, buffer);
+        noStroke();
         fill(255);
-        textSize(20);
-        text(this.title, 10, 10, this.w - 20, 20);
-        textSize(14);
-        text(this.txt, 10, 40, this.w - 20, this.h - 60);
+        textFont(fontText);
+        textSize(50);
+        text(this.title, 0, 35); //, this.w - buffer*2, this.h-2*buffer
+
+
+        fill(235);
+        noStroke();
+        textSize(24);
+        text(this.txt, 0, 60, this.w - 2*buffer, this.h - 2*buffer);
+
+
+        textFont(font);
         pop();
+    }
+
+    displayDate() {
+        fill(255);
+        stroke(255);
+        textSize(40);
+        text(this.getYear(scrollPos), 100, 100);
     }
 
     isSection(scrollPer) {
@@ -65,7 +107,7 @@ class Section {
 
     getYear(scrollPer) {
         if (this.startYear === this.endYear)
-        return this.startYear;
+            return this.startYear;
         return floor(map(scrollPer, this.start, this.end, this.startYear, this.endYear));
     }
 
@@ -77,13 +119,13 @@ class Section {
 
             let y;
             if (this.per < .3) {
-                this.y = map(this.per, 0, .3, height + 100, height / 2);
+                this.y = map(this.per, 0, .3, height + 100, height / 2 - this.h / 2);
             }
             else if (this.per < .6) {
-                this.y = height / 2;
+                this.y = height / 2 - this.h / 2;
             }
             else {
-                this.y = map(this.per, .6, 1, height / 2, -400);
+                this.y = map(this.per, .6, 1, height / 2 - this.h / 2, -this.h - 10);
             }
         }
         else {
@@ -92,17 +134,15 @@ class Section {
         }
     }
 
-    displayPollution() {
-        let alpha = constrain(map(this.per, 0, .5, 0, 255), 0, 255);
-        if (this.per > .8)
-            alpha = map(this.per, .8, 1, 255, 0);
+    displayPollution(alpha) {
+
         fill(0, alpha);
         noStroke();
 
         for (const dot of this.dots) {
             ellipse(dot.x, dot.y, dot.r);
-            dot.x += random(-2,2);
-            dot.y += random(-2,2);
+            dot.x += random(-2, 2);
+            dot.y += random(-2, 2);
         }
     }
 }

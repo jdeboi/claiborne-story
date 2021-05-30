@@ -14,7 +14,7 @@ class House {
         if (this.img) {
             const w = this.factor  * this.img.width;
             const h = this.factor * this.img.height;
-            image(this.img, this.x, this.y, w, h);
+            image(this.img, this.x, this.y+100-h, w, h);
             
         }
     }

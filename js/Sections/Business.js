@@ -5,24 +5,18 @@ class Business extends Section {
     }
 
     displayScene() {
-        push();
-        translate(0, 100); 
+        // background(backgroundCol);
+        drawBK();
+        
         if (this.per >= .4) {
             housePercentage = map(this.per, .4, 1, 1, 0);
-            houses.displayAbove();
         } 
         else {
             housePercentage = 1;
-            houses.displayAbove();
         }
        
-        translate(0, 200);
-        highway.display();
-        highway.updateTraffic(3500);
+        displayTraffic(1, 3500);
 
-        translate(0, 200);
-        houses.displayBelow();
-        pop();
 
     }
 
